@@ -1,15 +1,63 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Main mainProgram = new Main();
+        mainProgram.inicio();
     }
+
+
+    public void inicio() {
+
+        int menuOption = 0;
+        boolean exit = false;
+
+        System.out.println("Bienvenidos al gestor eventos");
+        String menu = "[1] Añadir evento:  \n" +
+                "[2] Borrar evento: \n" +
+                "[3] Listar eventos:  \n" +
+                "[4] Listar eventos:  \n" +
+                "[5] Salir";
+        do {
+            menuOption = getIntFromConsole(menu, 1, 5);
+            switch (menuOption) {
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+            }
+        } while (!exit);
+    }
+
+
+    public int getIntFromConsole(String mensaje, int valueMin, int valueMax) {
+        Scanner input = new Scanner(System.in);
+        int value = 0;
+        boolean exit = false;
+        do {
+            System.out.println(mensaje);
+            if (input.hasNextInt()) {
+                value = input.nextInt();
+                input.nextLine();
+                if (value >= valueMin && value <= valueMax) {
+                    exit = true;
+                }
+            } else {
+                System.out.println("Error. Debes introducir un valor entero");
+                input.nextLine();
+            }
+        } while (!exit);
+        return value;
+    }
+
 }
